@@ -12,7 +12,7 @@ public class MulticastClient{
 			DatagramPacket messageOut = new DatagramPacket(m, m.length, group, 6789);
 			s.send(messageOut);
 			byte[] buffer = new byte[1000];
-			for(int i=0; i< 3;i++) {		// get messages from others in group
+			for(int i=0; i< 10000;i++) {		// get messages from others in group
 				DatagramPacket messageIn = new DatagramPacket(buffer, buffer.length);
 				s.receive(messageIn);
 				System.out.println("Received:" + new String(messageIn.getData()));
