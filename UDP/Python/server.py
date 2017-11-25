@@ -6,7 +6,7 @@ BYTE = 1024000
 
 sock = socket.socket(socket.AF_INET, # Internet
                     socket.SOCK_DGRAM) # UDP
-sock.settimeout(60)
+#sock.settimeout(60)
 sock.bind((UDP_IP, UDP_PORT))
 # ENVIO MENSAJE
 #sock.sendto(MESSAGE, (UDP_IP, 9876))

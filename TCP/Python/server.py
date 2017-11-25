@@ -11,9 +11,9 @@ s.listen(5)
 print 'Esperando conexiones...'
 conn, addr = s.accept()
 print 'Conexiones address:', addr
-while 1:
-	data = conn.recv()
-	if data: break
+while True:
+	data = conn.recv(BUFFER_SIZE)
+	if not data: break
 	print "recibi data:", data
 	conn.send(data)  # echo
 conn.close()
