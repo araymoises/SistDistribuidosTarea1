@@ -1,6 +1,6 @@
 import java.net.*;
 import java.io.*;
-public class MulticastPeer{
+public class MulticastClient{
 	public static void main(String args[]){
 	// args give message contents and destination multicast group (e.g. "228.5.6.7")224.1.1.1
 		MulticastSocket s =null;
