@@ -7,8 +7,8 @@ class UDPClient
    {
      // BufferedReader inFromUser =
       //   new BufferedReader(new InputStreamReader(System.in)); para escribir lo que te de la gana
-      int BYTE = 8000;
-      DatagramSocket clientSocket = new DatagramSocket(9877); // Puse otro puerto distinto porque los probe en mi misma maquina
+      int BYTE = 1024;
+      DatagramSocket clientSocket = new DatagramSocket(); // Puse otro puerto distinto porque los probe en mi misma maquina
       InetAddress IPAddress = InetAddress.getByName("localhost");
       byte[] sendData = new byte[BYTE];
       byte[] receiveData = new byte[BYTE];
@@ -18,10 +18,11 @@ class UDPClient
       clientSocket.receive(receivePacket);
       String modifiedSentence = new String(receivePacket.getData());
       System.out.println("Server: " + modifiedSentence);
-      sendData = sentence.getBytes();
       // ENVIO
+      sendData = sentence.getBytes();
       DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress, 9876);
       clientSocket.send(sendPacket);
+
       clientSocket.close();
    }
 }
